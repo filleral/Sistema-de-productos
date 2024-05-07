@@ -1,0 +1,6 @@
+@Sistema_de_gestión_de_productos__HostAddress = http://localhost:5163
+
+GET {{Sistema_de_gestión_de_productos__HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
