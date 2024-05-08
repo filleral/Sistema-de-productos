@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Sistema_de_gestión_de_productos_.Entities
 {
-    public class User
+    public class UserDto
     {
         [Key]
         public int Id { get; set; }
@@ -21,7 +21,7 @@ namespace Sistema_de_gestión_de_productos_.Entities
 
         [Required]
         public string Email { get; set; }
-        public List<UserRoles> UserRoles { get; set; }
+        public List<UserRolesDto> UserRoles { get; set; }
 
         // Método para establecer la contraseña
         public void SetPassword(string password)

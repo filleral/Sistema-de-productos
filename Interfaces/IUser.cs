@@ -5,8 +5,9 @@ namespace Sistema_de_gestión_de_productos_.Interfaces
     public interface IUser
     {
         public Task CreateUser(string username, string password, string email);
-        public Task<List<User>> GetUserByUsername(string name);
-        public bool VerifyPassword(User user, string password);
-        public Task<Roles> GetRolById(int id);
+        public Task<List<UserDto>> GetUserByUsername(string name);
+        public bool VerifyPassword(UserDto user, string password);
+        public Task<RolesDto> GetRolById(int id);
+        public Task CreateRol(int Rolid, int userid)
     }
 }

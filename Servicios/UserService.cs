@@ -18,7 +18,7 @@ namespace Sistema_de_gestión_de_productos_.Services
         {
             _dbContext = dbContext;
         }
-        public async Task<List<User>> GetUserByUsername(string name)
+        public async Task<List<UserDto>> GetUserByUsername(string name)
         {
             try
             {
@@ -41,7 +41,7 @@ namespace Sistema_de_gestión_de_productos_.Services
             }
 
         }
-        public async Task<Roles> GetRolById(int id)
+        public async Task<RolesDto> GetRolById(int id)
         {
             try
             {
@@ -57,7 +57,7 @@ namespace Sistema_de_gestión_de_productos_.Services
             }
         }
 
-        public bool VerifyPassword(User user, string password)
+        public bool VerifyPassword(UserDto user, string password)
         {
             // Computa el hash de la contraseña proporcionada utilizando la salt del usuario
             using (var hmac = new HMACSHA512(user.Salt))
@@ -87,7 +87,7 @@ namespace Sistema_de_gestión_de_productos_.Services
                 }
 
                 // Crea una nueva instancia de User
-                var user = new User
+                var user = new UserDto
                 {
                     Username = username,
                     Email = email
@@ -98,6 +98,33 @@ namespace Sistema_de_gestión_de_productos_.Services
 
                 // Agrega el nuevo usuario al contexto de la base de datos
                 _dbContext.User.Add(user);
+
+                // Guarda los cambios en la base de datos
+                await _dbContext.SaveChangesAsync();
+            }
+            catch (Exception ex)
+            {
+                throw new ApplicationException("Error al crear el usuario.", ex);
+            }
+        }
+        public async Task CreateRol(int Rolid, int userid)
+        {
+            try
+            {
+                // Verifica si el nombre de usuario ya existe
+                if (await _dbContext.Useroles.AnyAsync(u => u.userId == userid && u.RoleId == Rolid))
+                {
+                    throw new ArgumentException("El rol ya está en uso.");
+                }
+
+                // Crea una nueva instancia de rol
+                var role = new UserRolesDto
+                {
+                    RoleId = Rolid,
+                    userId = userid
+                };
+
+                _dbContext.Useroles.Add(role);
 
                 // Guarda los cambios en la base de datos
                 await _dbContext.SaveChangesAsync();

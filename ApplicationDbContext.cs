@@ -9,9 +9,9 @@ namespace Sistema_de_gestión_de_productos_.Entities
         {
         }
         public DbSet<Producto> Productos { get; set; }
-        public DbSet<User> User { get; set; }
-        public DbSet<Roles> Roles { get; set; }
-        public DbSet<UserRoles> Useroles { get; set; }
+        public DbSet<UserDto> User { get; set; }
+        public DbSet<RolesDto> Roles { get; set; }
+        public DbSet<UserRolesDto> Useroles { get; set; }
 
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -36,7 +36,7 @@ namespace Sistema_de_gestión_de_productos_.Entities
                 entidad.Property(p => p.Precio)
                     .IsRequired();
             });
-            modelBuilder.Entity<User>(entidad =>
+            modelBuilder.Entity<UserDto>(entidad =>
             {
                 entidad.ToTable("User");
                 entidad.HasKey(p => p.Id);
@@ -54,7 +54,7 @@ namespace Sistema_de_gestión_de_productos_.Entities
                     .IsRequired();
             });
 
-            modelBuilder.Entity<Roles>(entidad =>
+            modelBuilder.Entity<RolesDto>(entidad =>
             {
                 entidad.ToTable("roles");
                 entidad.HasKey(p => p.Id);
@@ -63,7 +63,7 @@ namespace Sistema_de_gestión_de_productos_.Entities
                     .IsRequired();
 
             });
-            modelBuilder.Entity<UserRoles>(entidad =>
+            modelBuilder.Entity<UserRolesDto>(entidad =>
             {
                 entidad.ToTable("UserRoles");
                 entidad.HasKey(p => p.Id); // Definir una clave primaria compuesta
