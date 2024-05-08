@@ -41,6 +41,9 @@ Aquí están los endpoints más utilizados que se pueden probar utilizando Postm
 - `POST` https://localhost:7046/User/create  
   Crea un nuevo usuario.
 
+- `POST` https://localhost:7046/User/Createrol?Rolid=1&userid=1
+  Crea un nuevo rol. (tener en cuentas id)
+
 - `POST` https://localhost:7046/api/Auth/login  
   Inicia sesión y obtiene un token de acceso.
 
