@@ -2,6 +2,11 @@
 
 Este es un sistema de gestión de productos que proporciona una API REST para administrar productos y usuarios. Utiliza Swagger para ofrecer una visión general y panorámica de todos los endpoints creados.
 
+Recordar abrir este archivo con visual studio
+
+![image](https://github.com/filleral/Sistema-de-productos/assets/65782602/9cebeaf0-360c-4ecc-8f2b-5a53eb3be299)
+
+
 ## Configuración
 
 - Abra la solución en Visual Studio (se recomienda).
