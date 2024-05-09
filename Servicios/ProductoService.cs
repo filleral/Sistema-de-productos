@@ -1,7 +1,6 @@
 using Sistema_de_gestión_de_productos_.Interfaces;
 using Microsoft.EntityFrameworkCore; 
 using Sistema_de_gestión_de_productos_.Entities;
-using Sistema_de_gestión_de_productos_.dto.Productos;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Http.HttpResults;
 

@@ -1,5 +1,4 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Sistema_de_gestión_de_productos_.dto.Productos;
 using Sistema_de_gestión_de_productos_.Entities;
 
 namespace Sistema_de_gestión_de_productos_.Interfaces
